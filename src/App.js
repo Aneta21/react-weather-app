@@ -1,10 +1,11 @@
 import "./App.css";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
       <div className="contrainer">
-        <h1>Weather App</h1>
+        <Weather />
         <footer>
           Coded by Aneta and open-sourced on{" "}
           <a
