@@ -7,10 +7,12 @@ export default function Weather() {
     <div className="Weather">
       <Form />
       <h1>New York</h1>
-      <ul>
-        <li>Saturday 14:00</li>
-        <li>Sunny</li>
-      </ul>
+      <div className="info">
+        <ul>
+          <li>Saturday 14:00</li>
+          <li>Sunny</li>
+        </ul>
+      </div>
       <div className="row">
         <div className="col-6">
           <span className="icon">
@@ -19,7 +21,8 @@ export default function Weather() {
               alt="sunny"
             />
           </span>
-          23°C
+          <span className="temperature">23</span>
+          <span className="unit">°C | °F</span>
         </div>
         <div className="col-6 details">
           <ul>
