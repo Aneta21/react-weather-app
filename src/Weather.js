@@ -4,15 +4,14 @@ import "./Weather.css";
 import axios from "axios";
 import Form from "./Form";
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
       feels: response.data.main.feels_like,
-      city: response.name,
+      city: response.data.name,
       humidity: response.data.main.humidity,
       pressure: response.data.main.pressure,
       wind: response.data.wind.speed,
@@ -26,7 +25,7 @@ export default function Weather() {
     return (
       <div className="Weather">
         <Form />
-        <h1>New York</h1>
+        <h1>{weatherData.city}</h1>
         <div className="info">
           <ul>
             <li>Saturday 14:00</li>
@@ -56,8 +55,7 @@ export default function Weather() {
     );
   } else {
     const apiKey = "065d55f0dc357d457b78c1ad371a7843";
-    let city = "New York";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&units=metric&appid=${apiKey}`;
     axios.get(apiUrl).then(handleResponse);
 
     return "Loading...";

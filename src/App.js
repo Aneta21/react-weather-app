@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div className="contrainer">
-        <Weather />
+        <Weather defaultCity="Prague" />
         <footer>
           Coded by Aneta and open-sourced on{" "}
           <a
