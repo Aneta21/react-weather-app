@@ -39,3 +39,6 @@
   bottom: 28px;
   color: #332023;
 }
+.Weather .description:first-letter {
+  text-transform: capitalize;
+}
