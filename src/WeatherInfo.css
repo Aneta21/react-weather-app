@@ -16,22 +16,9 @@
 .WeatherInfo .info {
   margin-left: -80px;
   font-size: 20px;
+  margin-bottom: 30px;
 }
 .WeatherInfo li {
-  color: #332023;
-}
-.WeatherInfo .temperature {
-  font-size: 70px;
-  margin-bottom: 20px;
-  font-weight: bold;
-  color: #332023;
-  position: relative;
-  bottom: 16px;
-}
-.WeatherInfo .unit {
-  font-size: 20px;
-  position: relative;
-  bottom: 50px;
   color: #332023;
 }
 .WeatherInfo .description:first-letter {

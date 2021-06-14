@@ -1,0 +1,15 @@
+.WeatherUnits .temperature {
+  font-size: 70px;
+  font-weight: bold;
+  color: #332023;
+  position: relative;
+  bottom: 100px;
+  margin-left: 30px;
+}
+.WeatherUnits .unit {
+  font-size: 20px;
+  position: relative;
+  color: #332023;
+  bottom: 137px;
+  margin-left: 5px;
+}
