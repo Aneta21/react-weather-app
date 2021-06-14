@@ -18,8 +18,7 @@ export default function Weather(props) {
       pressure: response.data.main.pressure,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
-      iconUrl:
-        "https://cdn3.iconfinder.com/data/icons/summer-189/64/sun_bright_sunlight-512.png",
+      icon: response.data.weather[0].icon,
     });
   }
   function search() {

@@ -7,10 +7,9 @@
   font-size: 50px;
   color: #a86a74;
 }
-.WeatherInfo img {
-  width: 90px;
-  height: 90px;
-  margin-bottom: 30px;
+.WeatherInfo canvas {
+  width: 80px;
+  height: 80px;
   margin-right: 20px;
   margin-left: -70px;
 }
@@ -22,14 +21,17 @@
   color: #332023;
 }
 .WeatherInfo .temperature {
-  font-size: 60px;
+  font-size: 70px;
+  margin-bottom: 20px;
   font-weight: bold;
   color: #332023;
+  position: relative;
+  bottom: 16px;
 }
 .WeatherInfo .unit {
   font-size: 20px;
   position: relative;
-  bottom: 28px;
+  bottom: 50px;
   color: #332023;
 }
 .WeatherInfo .description:first-letter {

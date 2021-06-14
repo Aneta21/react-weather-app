@@ -1,8 +1,9 @@
 import React from "react";
 import TimeDate from "./TimeDate";
 import "./WeatherInfo.css";
+import Icon from "./Icon";
 
-export default function WeathrInfo(props) {
+export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <h1>{props.data.city}</h1>
@@ -16,13 +17,14 @@ export default function WeathrInfo(props) {
       </div>
       <div className="row">
         <div className="col-6">
-          <span className="icon">
-            <img src={props.data.iconUrl} alt="sunny" />
+          <span>
+            <Icon code={props.data.icon} />
+
+            <span className="temperature ">
+              {Math.round(props.data.temperature)}
+            </span>
+            <span className="unit">°C | °F</span>
           </span>
-          <span className="temperature">
-            {Math.round(props.data.temperature)}
-          </span>
-          <span className="unit">°C | °F</span>
         </div>
         <div className="col-6 details">
           <ul>
