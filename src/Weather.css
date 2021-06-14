@@ -6,39 +6,8 @@
   padding: 20px;
   background-color: rgba(246, 242, 237, 0.65);
 }
-.Weather h1 {
-  text-transform: uppercase;
-  margin-top: 10px;
-  margin-left: 30px;
-  text-align: left;
-  font-weight: 700;
-  font-size: 50px;
-  color: #a86a74;
-}
-.Weather img {
-  width: 90px;
-  height: 90px;
-  margin-left: 20px;
-  margin-bottom: 30px;
-  margin-right: 20px;
-}
-.Weather .info {
-  font-size: 20px;
-}
-.Weather li {
-  color: #332023;
-}
-.Weather .temperature {
-  font-size: 60px;
-  font-weight: bold;
-  color: #332023;
-}
-.Weather .unit {
-  font-size: 20px;
-  position: relative;
-  bottom: 28px;
-  color: #332023;
-}
-.Weather .description:first-letter {
-  text-transform: capitalize;
+
+.Weather .Form {
+  margin-left: 100px;
+  display: block;
 }
