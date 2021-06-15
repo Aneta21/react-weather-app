@@ -2,7 +2,7 @@ import React from "react";
 import TimeDate from "./TimeDate";
 import "./WeatherInfo.css";
 import Icon from "./Icon";
-import Units from "./WeatherUnits";
+import WeatherUnits from "./WeatherUnits";
 
 export default function WeatherInfo(props) {
   return (
@@ -17,13 +17,13 @@ export default function WeatherInfo(props) {
         </ul>
       </div>
       <div className="row">
-        <div className="col-6">
+        <div className="col-7">
           <span>
-            <Icon code={props.data.icon} />
-            <Units celsius={props.data.temperature} />
+            <Icon code={props.data.icon} size={100} />
+            <WeatherUnits celsius={props.data.temperature} />
           </span>
         </div>
-        <div className="col-6 details">
+        <div className="col-5 details">
           <ul>
             <li>Feels like: {Math.round(props.data.feels)}°C</li>
             <li>Humidity: {Math.round(props.data.humidity)}%</li>

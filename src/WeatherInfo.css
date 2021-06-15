@@ -1,22 +1,29 @@
 .WeatherInfo h1 {
   text-transform: uppercase;
   margin-top: 10px;
-  margin-left: -50px;
-  text-align: left;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 60px;
   color: #a86a74;
+  text-align: center;
+  display: block;
+  margin-left: 20px;
 }
 .WeatherInfo canvas {
-  width: 80px;
-  height: 80px;
-  margin-right: 20px;
-  margin-left: -70px;
+  margin-left: 20px;
+  position: relative;
+  top: 40px;
 }
 .WeatherInfo .info {
-  margin-left: -80px;
-  font-size: 20px;
+  text-align: center;
+  font-size: 25px;
   margin-bottom: 30px;
+  font-weight: 500;
+  display: block;
+}
+.WeatherInfo .details {
+  font-size: 20px;
+  margin-top: 20px;
+  padding-right: 10px;
 }
 .WeatherInfo li {
   color: #332023;
