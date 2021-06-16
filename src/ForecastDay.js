@@ -10,10 +10,17 @@ export default function ForecastDay(props) {
     let tempMax = Math.round(props.data.temp.max);
     return `${tempMax}`;
   }
+  function Day() {
+    let date = new Date(props.data.dt * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    return days[day];
+  }
 
   return (
     <div className="ForecastDay">
-      <div className="ForecastDay">{props.dt}</div>
+      <div className="ForecastDay">{Day()}</div>
       <div className="ForecastIcon">
         <Icon code={props.data.weather[0].icon} size={50} />
       </div>
