@@ -9,7 +9,7 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data);
+    console.log(response.data.main);
 
     setWeatherData({
       ready: true,
@@ -25,17 +25,30 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
     });
   }
-  function search() {
-    const apiKey = "9d01a180c47ff057558ff63995f97849";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
+
   function handleSubmit(event) {
     event.preventDefault();
     search();
   }
   function handleChange(event) {
     setCity(event.target.value);
+  }
+  function search() {
+    const apiKey = "9d01a180c47ff057558ff63995f97849";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+  function getPosition(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getCoordinates);
+  }
+
+  function getCoordinates(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    const apiKey = "9d01a180c47ff057558ff63995f97849";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
@@ -44,24 +57,32 @@ export default function Weather(props) {
         <div className="Form">
           <form onSubmit={handleSubmit}>
             <div className="row">
-              <div className="col-9">
+              <div className="col">
                 <div className="input-group mb-3 mt-2">
                   <input
                     type="search"
-                    placeholder="Enter a city"
+                    placeholder="Enter a city 🌍"
                     className="form-control"
                     autoFocus="on"
                     onChange={handleChange}
                   />
-
-                  <div className="col-3">
+                  <span className="buttons"></span>
+                  <div className="col-2">
                     <button
                       type="submit"
                       value="Search"
                       className="btn btn-outline-secondary"
                     >
                       Search
-                    </button>{" "}
+                    </button>
+                  </div>
+                  <div className="col-3 location">
+                    <input
+                      type="submit"
+                      value="📍"
+                      className="btn btn-outline-secondary"
+                      onClick={getPosition}
+                    />
                   </div>
                 </div>
               </div>
