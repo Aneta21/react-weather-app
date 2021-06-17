@@ -1,15 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
 
+const apiKey = "9d01a180c47ff057558ff63995f97849";
+const weatherEndpointCommon = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${apiKey}`;
+
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-    console.log(response.data.main);
 
     setWeatherData({
       ready: true,
@@ -34,22 +36,24 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
   function search() {
-    const apiKey = "9d01a180c47ff057558ff63995f97849";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    const apiUrl = `${weatherEndpointCommon}&q=${city}`;
     axios.get(apiUrl).then(handleResponse);
+
   }
   function getPosition(event) {
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(getCoordinates);
   }
-
   function getCoordinates(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    const apiKey = "9d01a180c47ff057558ff63995f97849";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const apiUrl = `${weatherEndpointCommon}&lat=${lat}&lon=${lon}`;
     axios.get(apiUrl).then(handleResponse);
   }
+
+  useEffect(() => {
+    search();
+  }, []);
 
   if (weatherData.ready) {
     return (
@@ -94,7 +98,6 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    search();
     return "Loading";
   }
 }
