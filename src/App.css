@@ -10,6 +10,20 @@
   position: relative;
   display: block;
   text-align: center;
+  margin-top: -20px;
   margin-bottom: 200px;
   padding-top: 0px;
+  color: rgb(39, 38, 38);
+  font-size: 17px;
+  font-weight: 500;
+}
+.App a {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+.App a:hover {
+  color: #a86a74;
+}
+.App a:visited {
+  color: #a86a74;
 }

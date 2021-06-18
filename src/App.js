@@ -7,13 +7,22 @@ function App() {
       <div className="contrainer">
         <Weather defaultCity="Prague" />
         <footer>
-          Coded by Aneta and open-sourced on{" "}
+          Coded by{" "}
+          <a
+            href="https://www.linkedin.com/in/aneta-stepankova"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            Aneta{" "}
+          </a>{" "}
+          and open-sourced on{" "}
           <a
             href="https://github.com/Aneta21/react-weather-app"
             target="_blank"
             rel="noreferrer"
           >
-            GitHub
+            <span class="fab fa-github"></span>
           </a>
         </footer>
       </div>

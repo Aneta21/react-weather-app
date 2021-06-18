@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
@@ -12,7 +12,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
-
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -38,7 +37,6 @@ export default function Weather(props) {
   function search() {
     const apiUrl = `${weatherEndpointCommon}&q=${city}`;
     axios.get(apiUrl).then(handleResponse);
-
   }
   function getPosition(event) {
     event.preventDefault();
@@ -50,10 +48,6 @@ export default function Weather(props) {
     const apiUrl = `${weatherEndpointCommon}&lat=${lat}&lon=${lon}`;
     axios.get(apiUrl).then(handleResponse);
   }
-
-  useEffect(() => {
-    search();
-  }, []);
 
   if (weatherData.ready) {
     return (
@@ -98,6 +92,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
+    search();
     return "Loading";
   }
 }
