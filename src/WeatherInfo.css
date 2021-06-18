@@ -26,7 +26,7 @@
   padding-right: 10px;
 }
 .WeatherInfo li {
-  color: #332023;
+  color: #000;
 }
 .WeatherInfo .description:first-letter {
   text-transform: capitalize;

@@ -22,7 +22,7 @@ function App() {
             target="_blank"
             rel="noreferrer"
           >
-            <span class="fab fa-github"></span>
+            <span className="fab fa-github"></span>
           </a>
         </footer>
       </div>

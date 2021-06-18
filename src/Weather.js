@@ -64,7 +64,7 @@ export default function Weather(props) {
                     autoFocus="on"
                     onChange={handleChange}
                   />
-                  <span className="buttons"></span>
+                  <span className="buttons" />
                   <div className="col-2">
                     <button
                       type="submit"
